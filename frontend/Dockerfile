@@ -1,5 +1,5 @@
 # 使用Node.js官方镜像
-FROM node:14
+FROM node:21.5.0
 
 # 设置工作目录
 WORKDIR /app/frontend
