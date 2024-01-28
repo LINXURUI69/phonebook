@@ -17,4 +17,4 @@ Mac用`brew install node`安装，Ubuntu用apt应该也差不多。
 3. npm run db
 
 ### 打开应用
-http://localhost:8080/
+http://localhost:3000/

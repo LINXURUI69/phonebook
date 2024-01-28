@@ -5,9 +5,9 @@ const cors = require('cors')
 const app = express();
 app.use(express.json());
 app.use(cors())
-const port = 9999;
+const port = 8080;
 
-baseUrl = 'http://localhost:3000/persons';
+baseUrl = 'http://localhost:9999/persons';
 
 app.get('/persons', async (req, res) => {
     try {
