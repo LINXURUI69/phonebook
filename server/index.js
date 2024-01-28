@@ -7,7 +7,7 @@ app.use(express.json());
 app.use(cors())
 const port = 9999;
 
-baseUrl = 'http://localhost:3000/persons';
+baseUrl = 'http://db:3000/persons';
 
 app.get('/persons', async (req, res) => {
     try {
