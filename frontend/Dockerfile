@@ -17,7 +17,7 @@ RUN npm run build
 FROM nginx
 
 # 复制构建结果
-COPY --from=build-container /app/frontend/dist /usr/share/nginx/html
+COPY --from=build-container /app/frontend/build /usr/share/nginx/html
 
 # 复制自定义Nginx配置
 COPY /nginx-custom.conf /etc/nginx/conf.d/default.conf
