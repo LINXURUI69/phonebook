@@ -35,3 +35,28 @@
 2. `microk8s kubectl get pods -l app=frontend`
 3. `microk8s kubectl apply -f frontend-service.yaml`
 4. `microk8s kubectl get svc`
+
+# 我需要的命令
+docker build -t db .
+docker tag db:latest 192.168.64.2:32000/db:latest
+docker push 192.168.64.2:32000/db:latest
+microk8s kubectl apply -f db-deployment.yaml
+microk8s kubectl apply -f db-service.yaml
+microk8s kubectl delete svc db-service
+microk8s kubectl delete deployment db-deployment
+
+docker build -t server .
+docker tag server:latest 192.168.64.2:32000/server:latest
+docker push 192.168.64.2:32000/server:latest
+microk8s kubectl apply -f server-deployment.yaml
+microk8s kubectl apply -f server-service.yaml
+microk8s kubectl delete svc server-service
+microk8s kubectl delete deployment server-deployment
+
+docker build -t frontend .
+docker tag frontend:latest 192.168.64.2:32000/frontend:latest
+docker push 192.168.64.2:32000/frontend:latest
+microk8s kubectl apply -f frontend-deployment.yaml
+microk8s kubectl apply -f frontend-service.yaml
+microk8s kubectl delete svc frontend-service
+microk8s kubectl delete deployment frontend-deployment
