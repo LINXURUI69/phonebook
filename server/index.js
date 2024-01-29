@@ -7,7 +7,8 @@ app.use(express.json());
 app.use(cors())
 const port = 8080;
 
-baseUrl = 'http://localhost:9999/persons';
+// baseUrl = 'http://localhost:9999/persons';
+baseUrl = 'http://10.152.183.204:9999/persons';
 
 app.get('/persons', async (req, res) => {
     try {

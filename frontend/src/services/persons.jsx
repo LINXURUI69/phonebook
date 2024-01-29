@@ -1,5 +1,7 @@
 import axios from 'axios'
-const baseUrl = 'http://localhost:8080/persons'
+
+// const baseUrl = 'http://localhost:8080/persons'
+const baseUrl = 'http://10.152.183.162:8080/persons'
 
 const getAll = () => {
     return axios.get(baseUrl).then(response => response.data)
