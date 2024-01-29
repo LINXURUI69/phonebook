@@ -10,10 +10,14 @@ COPY . .
 # 安装依赖
 RUN npm install
 
+# 构建应用程序
 RUN npm run build
 
+# 使用Nginx官方镜像
 FROM nginx
 
+# 复制构建结果
 COPY --from=build-container /app/frontend/dist /usr/share/nginx/html
 
+# 复制自定义Nginx配置
 COPY /nginx-custom.conf /etc/nginx/conf.d/default.conf
