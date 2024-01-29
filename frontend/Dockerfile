@@ -1,5 +1,5 @@
 # 使用Node.js官方镜像
-FROM node:21.5.0
+FROM node:21.5.0 as build-container
 
 # 设置工作目录
 WORKDIR /app/frontend
@@ -10,8 +10,10 @@ COPY . .
 # 安装依赖
 RUN npm install
 
-# 暴露端口
-EXPOSE 3000
+RUN npm run build
 
-# 运行应用
-CMD ["npm", "run", "dev"]
+FROM nginx
+
+COPY --from=build-container /app/frontend/dist /usr/share/nginx/html
+
+COPY /nginx-custom.conf /etc/nginx/conf.d/default.conf

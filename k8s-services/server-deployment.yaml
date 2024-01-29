@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: server-container
-        image: localhost:32000/server
+        image: localhost:32000/server:latest
         ports:
         - containerPort: 8080
