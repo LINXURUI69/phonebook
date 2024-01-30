@@ -29,7 +29,18 @@ microk8s kubectl apply -f frontend-service.yaml
 microk8s kubectl delete svc frontend-service
 microk8s kubectl delete deployment frontend-deployment
 
+microk8s kubectl get deployment
 microk8s kubectl get pod
 microk8s kubectl get svc
-microk8s kubectl get deployment
 microk8s kubectl exec -it <pod> -- /bin/sh
+
+# Features
+1. 前端使用Two-Stage构建镜像。
+2. 前端、后端和数据库都部署为Deployment。
+3. 前端、后端使用NodePort，数据库使用ClusterIP。
+4. 后端使用CoreDNS访问数据库。
+
+# TODO
+1. PersistentVolume + PersistentVolumeClaim + StorageClass
+2. ConfigMap + Secret
+3. AutoScaler
