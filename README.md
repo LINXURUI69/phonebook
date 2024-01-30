@@ -33,7 +33,3 @@ microk8s kubectl get pod
 microk8s kubectl get svc
 microk8s kubectl get deployment
 microk8s kubectl exec -it <pod> -- /bin/sh
-
-# Features
-1. 前端、后端和数据库都是Deployment，前端和后端使用NodePort，数据库使用ClusterIP。
-2. 外部通过NodePort访问前端和后端，后端通过CoreDNS访问数据库。
