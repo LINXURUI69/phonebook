@@ -1,7 +1,5 @@
 import axios from 'axios'
 
-// const baseUrl = 'http://localhost:8080/persons'
-// const baseUrl = 'http://server-service:8080/persons'
 const baseUrl = 'http://192.168.64.2:30001/persons'
 
 const getAll = () => {
