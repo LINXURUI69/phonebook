@@ -71,5 +71,6 @@ microk8s kubectl get svc
 microk8s kubectl get pod
 microk8s kubectl exec -it <pod> -- /bin/sh
 
-# 目前的问题
-前端部署到k8s后，无法访问集群中的其他IP，比如后端的ClusterIP，CoreDNS的ClusterIP等，从而导致完全无法获取数据。
+# 启用的功能
+CoreDNS
+Ingress
