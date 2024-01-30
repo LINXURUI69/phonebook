@@ -70,7 +70,3 @@ microk8s kubectl delete deployment frontend-deployment
 microk8s kubectl get svc
 microk8s kubectl get pod
 microk8s kubectl exec -it <pod> -- /bin/sh
-
-# 启用的功能
-CoreDNS
-Ingress
