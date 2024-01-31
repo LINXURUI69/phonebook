@@ -34,6 +34,8 @@ microk8s kubectl get pod
 microk8s kubectl get svc
 microk8s kubectl exec -it <pod> -- /bin/sh
 
+microk8s ctr images help
+
 # Features
 1. 前端使用Two-Stage构建镜像。
 2. 前端、后端和数据库都部署为Deployment。
