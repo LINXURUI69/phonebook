@@ -46,4 +46,4 @@ microk8s ctr images ls | cut -c 1-150
 # TODO
 1. PersistentVolume + PersistentVolumeClaim + StorageClass
 2. ConfigMap + Secret
-3. AutoScaler
+3. AutoScaler + Canary
