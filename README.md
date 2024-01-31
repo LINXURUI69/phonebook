@@ -35,7 +35,7 @@ microk8s kubectl get svc
 microk8s kubectl exec -it <pod> -- /bin/sh
 
 microk8s ctr images help
-microk8s ctr images ls | cut -c 1-150microk8s ctr images ls | cut -c 1-150
+microk8s ctr images ls | cut -c 1-150
 
 # Features
 1. 前端使用Two-Stage构建镜像。
