@@ -28,6 +28,8 @@ microk8s kubectl apply -f server-deployment.yaml
 microk8s kubectl apply -f server-service.yaml
 microk8s kubectl get deployment
 microk8s kubectl get svc
+### Scale Deployment for SERVER
+microk8s kubectl scale deployment server-deployment --replicas=3
 ### Create Deployment and Service for FRONTEND
 cd ../frontend
 docker build -t frontend .
@@ -38,6 +40,8 @@ microk8s kubectl apply -f frontend-deployment.yaml
 microk8s kubectl apply -f frontend-service.yaml
 microk8s kubectl get deployment
 microk8s kubectl get svc
+### Scale Deployment for FRONTEND
+microk8s kubectl scale deployment frontend-deployment --replicas=3
 ### Clean
 microk8s kubectl delete configmap db-configmap
 microk8s kubectl delete secret db-secret
