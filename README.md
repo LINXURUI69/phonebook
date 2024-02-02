@@ -1,7 +1,9 @@
 # Commands
+cd ../k8s-services/
+microk8s kubectl apply -f db-pv-pvc.yaml
+
 docker tag mongo:latest 192.168.64.2:32000/db:latest
 docker push 192.168.64.2:32000/db:latest
-cd ../k8s-services/
 microk8s kubectl apply -f db-deployment.yaml
 microk8s kubectl apply -f db-service.yaml
 microk8s kubectl delete svc db-service
@@ -27,6 +29,8 @@ microk8s kubectl apply -f frontend-service.yaml
 microk8s kubectl delete svc frontend-service
 microk8s kubectl delete deployment frontend-deployment
 
+microk8s kubectl get pv
+microk8s kubectl get pvc
 microk8s kubectl get deployment
 microk8s kubectl get pod
 microk8s kubectl get svc
@@ -42,6 +46,5 @@ microk8s ctr images ls | cut -c 1-150
 4. 后端使用CoreDNS访问数据库。
 
 # TODO
-1. PersistentVolume + PersistentVolumeClaim + StorageClass
 2. ConfigMap + Secret
 3. AutoScaler + Canary
