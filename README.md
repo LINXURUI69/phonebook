@@ -50,6 +50,7 @@ microk8s kubectl delete svc server-service
 microk8s kubectl delete deployment frontend-deployment
 microk8s kubectl delete svc frontend-service
 ### Some useful commands
+microk8s kubectl get pod
 microk8s kubectl logs <pod>
 microk8s kubectl exec -it <pod> -- /bin/sh
 microk8s ctr images help

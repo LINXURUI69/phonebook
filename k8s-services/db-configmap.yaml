@@ -2,7 +2,5 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: db-configmap
-  labels:
-    app: db
 data:
   MONGO_INITDB_ROOT_USERNAME: root

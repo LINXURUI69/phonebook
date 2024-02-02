@@ -19,10 +19,12 @@ spec:
         image: localhost:32000/db:latest
         ports:
         - containerPort: 27017
-        envFrom:
-        - configMapRef:
-            name: db-configmap
         env:
+        - name: MONGO_INITDB_ROOT_USERNAME
+          valueFrom:
+            configMapKeyRef:
+              name: db-configmap
+              key: MONGO_INITDB_ROOT_USERNAME
         - name: MONGO_INITDB_ROOT_PASSWORD
           valueFrom:
             secretKeyRef:
