@@ -9,6 +9,7 @@ const port = 8080;
 
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://root:example@db-service:27017/persons?authSource=admin');
+// mongoose.connect('mongodb://root:example@localhost:27017/persons?authSource=admin');
 
 const personSchema = new mongoose.Schema({
     name: String,
