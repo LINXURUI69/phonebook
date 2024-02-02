@@ -66,7 +66,3 @@ microk8s ctr images ls | cut -c 1-150
 3. 数据库采用Deployment和ClusterIP。
 4. 后端采用Deployment和NodePort，使用CoreDNS访问数据库。
 5. 前端采用Deployment和NodePort。
-
-# TODO
-1. 自动扩缩容量
-2. 升级部署方案
