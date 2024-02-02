@@ -1,7 +1,5 @@
 # Commands
-cd ../db
-docker build -t db .
-docker tag db:latest 192.168.64.2:32000/db:latest
+docker tag mongo:latest 192.168.64.2:32000/db:latest
 docker push 192.168.64.2:32000/db:latest
 cd ../k8s-services/
 microk8s kubectl apply -f db-deployment.yaml

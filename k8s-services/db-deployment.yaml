@@ -18,4 +18,4 @@ spec:
       - name: db-container
         image: localhost:32000/db:latest
         ports:
-        - containerPort: 9999
+        - containerPort: 27017

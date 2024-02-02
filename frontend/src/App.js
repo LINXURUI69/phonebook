@@ -23,7 +23,7 @@ const Persons = ({ filteredPersons, handlePersonDelete }) => {
       {filteredPersons.map(filteredPerson =>
         <div key={filteredPerson.name}>
           {filteredPerson.name} {filteredPerson.number}
-          <button onClick={() => handlePersonDelete(filteredPerson.id)}>delete</button>
+          <button onClick={() => handlePersonDelete(filteredPerson._id)}>delete</button>
         </div>
       )}
     </div>
@@ -44,7 +44,7 @@ const App = () => {
   const [newNumber, setNewNumber] = useState('')
 
   const filteredPersons = persons.filter(person => person.name.toLowerCase().includes(nameFilter.toLowerCase()))
-  console.log(filteredPersons);
+
   const handleNameFilterChange = (event) => {
     setNameFilter(event.target.value)
   }
@@ -54,7 +54,6 @@ const App = () => {
     const newPerson = {
       name: newName,
       number: newNumber,
-      id: (persons.length + 1).toString()
     }
     personService.create(newPerson).then(returnedPerson => {
       setPersons(persons.concat(returnedPerson))
@@ -72,11 +71,11 @@ const App = () => {
     setNewNumber(event.target.value)
   }
 
-  const handlePersonDelete = (id) => {
-    const personToDelete = persons.find(person => person.id === id)
+  const handlePersonDelete = (_id) => {
+    const personToDelete = persons.find(person => person._id === _id)
     if (window.confirm(`Delete ${personToDelete.name}?`)) {
-      personService.erase(id).then(() => {
-        setPersons(persons.filter(person => person.id !== id))
+      personService.erase(_id).then(() => {
+        setPersons(persons.filter(person => person._id !== _id))
       })
     }
   }
