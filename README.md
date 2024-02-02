@@ -6,7 +6,7 @@ microk8s kubectl get configmap
 microk8s kubectl apply -f db-secret.yaml
 microk8s kubectl get secret
 ### Create PersistentVolume and PersistentVolumeClaim for DB
-(Create a dir /mnt/data in cluster node before applying yaml)
+(Create a dir /mnt/data on cluster node before applying yaml)
 cd ../k8s-services/
 microk8s kubectl apply -f db-pv-pvc.yaml
 microk8s kubectl get pv
