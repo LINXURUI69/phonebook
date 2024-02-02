@@ -50,16 +50,18 @@ microk8s kubectl delete svc server-service
 microk8s kubectl delete deployment frontend-deployment
 microk8s kubectl delete svc frontend-service
 ### Some useful commands
+microk8s kubectl logs <pod>
 microk8s kubectl exec -it <pod> -- /bin/sh
 microk8s ctr images help
 microk8s ctr images ls | cut -c 1-150
 
 # Features
-1. 前端使用Two-Stage构建镜像。
-2. 前端、后端和数据库都部署为Deployment。
-3. 前端、后端使用NodePort，数据库使用ClusterIP。
-4. 后端使用CoreDNS访问数据库。
+1. 使用ConfigMap和Secret保存数据库账号密码。
+2. 使用PV和PVC保存数据库数据。
+3. 数据库采用Deployment和ClusterIP。
+4. 后端采用Deployment和NodePort，使用CoreDNS访问数据库。
+5. 前端采用Deployment和NodePort。
 
 # TODO
-1. 自动扩缩容
+1. 自动扩缩容量
 2. 升级部署方案
