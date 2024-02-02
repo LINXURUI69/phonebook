@@ -8,7 +8,7 @@ app.use(cors())
 const port = 8080;
 
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://db-service:27017/persons');
+mongoose.connect('mongodb://root:example@db-service:27017/persons?authSource=admin');
 
 const personSchema = new mongoose.Schema({
     name: String,
