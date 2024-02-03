@@ -43,6 +43,12 @@ microk8s kubectl get deployment
 microk8s kubectl get svc
 ### Scale Deployment for FRONTEND
 microk8s kubectl scale deployment frontend-deployment --replicas=3
+### Add NetworkPolicy to FRONTEND, SERVER, and DB
+cd ../k8s-service/
+microk8s kubectl apply -f frontend-networkpolicy.yaml
+microk8s kubectl apply -f server-networkpolicy.yaml
+microk8s kubectl apply -f db-networkpolicy.yaml
+microk8s kubectl get networkpolicy
 ### Clean
 microk8s kubectl delete configmap db-configmap
 microk8s kubectl delete secret db-secret
