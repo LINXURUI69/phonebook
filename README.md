@@ -42,15 +42,15 @@ microk8s kubectl delete pv db-pv
 microk8s kubectl delete pvc db-pvc
 microk8s kubectl delete deployment db-deployment
 microk8s kubectl delete svc db-service
-microk8s kubectl delete networkpolicy db-networkpolicy.yaml
+microk8s kubectl delete networkpolicy db-networkpolicy
 
 microk8s kubectl delete deployment server-deployment
 microk8s kubectl delete svc server-service
-microk8s kubectl delete networkpolicy server-networkpolicy.yaml
+microk8s kubectl delete networkpolicy server-networkpolicy
 
 microk8s kubectl delete deployment frontend-deployment
 microk8s kubectl delete svc frontend-service
-microk8s kubectl delete networkpolicy frontend-networkpolicy.yaml
+microk8s kubectl delete networkpolicy frontend-networkpolicy
 
 ### Some useful commands
 microk8s kubectl logs <pod>

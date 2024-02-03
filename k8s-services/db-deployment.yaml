@@ -15,25 +15,25 @@ spec:
         app: db
     spec:
       containers:
-      - name: db-container
-        image: localhost:32000/db:latest
-        ports:
-        - containerPort: 27017
-        env:
-        - name: MONGO_INIT_ROOT_USERNAME
-          valueFrom:
-            configMapKeyRef:
-              name: db-configmap
-              key: MONGO_INITDB_ROOT_USERNAME
-        - name: MONGO_INIT_ROOT_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: db-secret
-              key: MONGO_INITDB_ROOT_PASSWORD
-        volumeMounts:
-        - name: db-persistent-storage
-          mountPath: /data/db
+        - name: db-container
+          image: localhost:32000/db:latest
+          ports:
+            - containerPort: 27017
+          env:
+            - name: MONGO_INIT_ROOT_USERNAME
+              valueFrom:
+                configMapKeyRef:
+                  name: db-configmap
+                  key: MONGO_INITDB_ROOT_USERNAME
+            - name: MONGO_INIT_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: db-secret
+                  key: MONGO_INITDB_ROOT_PASSWORD
+          volumeMounts:
+            - name: db-persistent-storage
+              mountPath: /data/db
       volumes:
-      - name: db-persistent-storage
-        persistentVolumeClaim:
-          claimName: db-pvc
+        - name: db-persistent-storage
+          persistentVolumeClaim:
+            claimName: db-pvc

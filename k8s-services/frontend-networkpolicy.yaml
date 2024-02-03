@@ -7,8 +7,8 @@ spec:
     matchLabels:
       app: frontend
   policyTypes:
-  - Ingress
+    - Ingress
   ingress:
-  - ports:
-    - port: 80
-      protocol: TCP
+    - ports:
+        - port: 80
+          protocol: TCP

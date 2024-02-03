@@ -7,8 +7,8 @@ spec:
     matchLabels:
       app: db
   policyTypes:
-  - Ingress
+    - Ingress
   ingress:
-  - ports:
-    - port: 27017
-      protocol: TCP
+    - ports:
+        - port: 27017
+          protocol: TCP
