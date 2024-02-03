@@ -1,23 +1,19 @@
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: db-sa
+  name: server-sa
   namespace: default
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
-  name: db-role
+  name: server-role
   namespace: default
 rules:
   - apiGroups: [""]
     resources:
       [
         "pods",
-        "configmaps",
-        "secrets",
-        "persistentvolumes",
-        "persistentvolumeclaims",
         "deployments",
         "services",
         "networkpolicies",
@@ -27,13 +23,13 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
-  name: db-role-binding
+  name: server-role-binding
   namespace: default
 subjects:
   - kind: ServiceAccount
-    name: db-sa
+    name: server-sa
     namespace: default
 roleRef:
   kind: Role
-  name: db-role
+  name: server-role
   apiGroup: rbac.authorization.k8s.io
