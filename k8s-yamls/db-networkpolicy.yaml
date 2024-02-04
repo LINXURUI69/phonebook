@@ -12,3 +12,4 @@ spec:
     - ports:
         - port: 27017
           protocol: TCP
+          

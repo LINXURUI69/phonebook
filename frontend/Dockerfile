@@ -1,23 +1,23 @@
-# 使用Node.js官方镜像
+# Use official Node.js image
 FROM node:21.5.0 as build-container
 
-# 设置工作目录
+# Set working directory
 WORKDIR /app/frontend
 
-# 复制应用程序文件
+# Copy application files
 COPY . .
 
-# 安装依赖
+# Install dependencies
 RUN npm install
 
-# 构建应用程序
+# Build application
 RUN npm run build
 
-# 使用Nginx官方镜像
+# Use official Nginx image
 FROM nginx
 
-# 复制构建结果
+# Copy built application
 COPY --from=build-container /app/frontend/build /usr/share/nginx/html
 
-# 复制自定义Nginx配置
+# Copy custom Nginx configuration
 COPY /nginx-custom.conf /etc/nginx/conf.d/default.conf

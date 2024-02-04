@@ -1,17 +1,17 @@
-# 使用Node.js官方镜像
+# Use official Node.js image
 FROM node:21.5.0
 
-# 设置工作目录
+# Set working directory
 WORKDIR /app/server
 
-# 复制应用程序文件
+# Copy application files
 COPY . .
 
-# 安装依赖
+# Install dependencies
 RUN npm install
 
-# 暴露端口
+# Expose port
 EXPOSE 8080
 
-# 运行应用
+# Run application
 CMD ["npm", "start"]
